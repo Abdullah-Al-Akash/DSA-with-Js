@@ -1,41 +1,19 @@
 
 
 function checkSquare(num) {
+        if (num === 0) {
+                return 0;
+        }
         if (num === 1) {
-                return true;
+                return true
         }
-        let start = 0;
-        let mid = Math.floor((start + num) / 2);
-
-
-        if (start > mid) {
-                for (let i = start; i <= mid; i++) {
-                        if (mid * mid === num) {
-                                return true;
-                        }
-                        else if (mid * mid > num) {
-                                mid = mid - 1;
-                        }
-                        else {
-                                start = mid + 1;
-                        }
+        for (let i = 0; i * i >= 0 && i * i <= num; i++) {
+                if (i * i == num) {
+                        return true;
                 }
-                return false
         }
-        else {
-                for (let i = start; i <= mid; i--) {
-                        if (mid * mid === num) {
-                                return true;
-                        }
-                        else if (mid * mid > num) {
-                                mid = mid - 1;
-                        }
-                        else {
-                                start = mid + 1;
-                        }
-                }
-                return false
-        }
+        return false;
+
 }
 
-console.log(checkSquare(99));
+console.log(checkSquare());
